@@ -25,6 +25,10 @@ setup(
     author_email='93357912+hect0x7@users.noreply.github.com',
     packages=find_packages("src"),
     package_dir={"": "src"},
+    include_package_data=True,
+    package_data={
+        "jmcomic_web": ["templates/*.html", "static/*.css", "static/*.js"],
+    },
     python_requires=">=3.9",
     install_requires=[
         'curl_cffi',
@@ -51,6 +55,7 @@ setup(
         'console_scripts': [
             'jmcomic = jmcomic.cl:main',
             'jmv = jmcomic.cl:view_main',
+            'jmcomic-web = jmcomic_web.cli:main',
         ]
     }
 )

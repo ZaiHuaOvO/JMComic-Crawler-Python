@@ -39,6 +39,10 @@ Documentation = "https://jmcomic.readthedocs.io"
 [project.scripts]
 jmcomic = "jmcomic.cl:main"
 jmv = "jmcomic.cl:view_main"
+jmcomic-web = "jmcomic_web.cli:main"
 
 [tool.setuptools.dynamic]
 version = {attr = "jmcomic.__version__"}
+
+[tool.setuptools.package-data]
+"jmcomic_web" = ["templates/*.html", "static/*.css", "static/*.js"]

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>__TITLE__</title>
+  <link rel="stylesheet" href="/static/app.css">
+</head>
+<body data-page="history">
+  <header class="topbar">
+    <div>
+      <h1>下载历史</h1>
+    </div>
+    <nav class="nav">
+      <a class="nav-link" href="/">下载</a>
+      <a class="nav-link active" href="/history">历史</a>
+    </nav>
+  </header>
+
+  <main class="layout single">
+    <section class="panel">
+      <div class="panel-head">
+        <h2>下载历史</h2>
+        <div class="history-toolbar">
+          <input id="historyKeyword" class="input" placeholder="搜索漫画 ID / 标题 / 标签">
+          <button id="historySearchBtn" class="button ghost" type="button">搜索</button>
+          <button id="historyReloadBtn" class="button ghost" type="button">刷新</button>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>原始名称</th>
+              <th>翻译名称</th>
+              <th>标签</th>
+              <th>下载时间</th>
+              <th>状态</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody id="historyBody"></tbody>
+        </table>
+      </div>
+
+      <div id="historyPager" class="pager"></div>
+    </section>
+  </main>
+
+  <dialog id="coverDialog" class="cover-dialog">
+    <div class="cover-dialog-head">
+      <strong id="coverTitle">封面预览</strong>
+      <button id="coverCloseBtn" class="button ghost" type="button">关闭</button>
+    </div>
+    <img id="coverImage" class="cover-image" alt="cover preview">
+  </dialog>
+
+  <script src="/static/app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>__TITLE__</title>
+  <link rel="stylesheet" href="/static/app.css">
+</head>
+<body data-page="index">
+  <header class="topbar">
+    <div>
+      <h1>批量下载</h1>
+    </div>
+    <nav class="nav">
+      <a class="nav-link active" href="/">下载</a>
+      <a class="nav-link" href="/history">历史</a>
+    </nav>
+  </header>
+
+  <main class="layout">
+    <section class="panel">
+      <div class="panel-head">
+        <h2>批量下载</h2>
+        <span id="healthBadge" class="badge">检查中</span>
+      </div>
+
+      <label class="field-label" for="idsInput">漫画 ID</label>
+      <textarea id="idsInput" class="textarea" rows="10" placeholder="123456&#10;456789&#10;999999"></textarea>
+
+      <div class="controls">
+        <label class="checkbox">
+          <input id="translateToggle" type="checkbox">
+          <span>启用翻译</span>
+        </label>
+
+        <select id="translateProvider" class="select">
+          <option value="google">Google Translate</option>
+        </select>
+
+        <select id="translateTargetLang" class="select">
+          <option value="zh-CN" selected>中文</option>
+          <option value="zh-TW">繁体中文</option>
+          <option value="ja">日语</option>
+          <option value="en">英语</option>
+        </select>
+
+        <button id="startBtn" class="button primary">开始下载</button>
+      </div>
+
+      <div class="hint">
+        默认采用后台队列处理，不会阻塞页面。任务进度会自动轮询刷新。
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <h2>当前任务</h2>
+        <button id="refreshRunBtn" class="button ghost" type="button">刷新</button>
+      </div>
+
+      <div id="runSummary" class="summary empty">尚无任务</div>
+      <div id="runProgress" class="progress-wrap hidden">
+        <div class="progress-bar"><div id="runProgressBar" class="progress-fill"></div></div>
+        <div id="runProgressText" class="progress-text"></div>
+      </div>
+
+      <div id="runItems" class="item-list"></div>
+      <div id="runLogs" class="log-box"></div>
+    </section>
+  </main>
+
+  <dialog id="coverDialog" class="cover-dialog">
+    <div class="cover-dialog-head">
+      <strong id="coverTitle">封面预览</strong>
+      <button id="coverCloseBtn" class="button ghost" type="button">关闭</button>
+    </div>
+    <img id="coverImage" class="cover-image" alt="cover preview">
+  </dialog>
+
+  <script src="/static/app.js" defer></script>
+</body>
+</html>
